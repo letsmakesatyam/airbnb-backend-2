@@ -6,8 +6,13 @@ hostRouter.get("/register" , (req , res , next)=>{
     res.sendFile(path.join(rootDir , "views" , "registerHome.html"));
     
 });
+const homes = [];
 hostRouter.post("/register" , (req , res , next)=>{
-    console.log(req.body);
+   
+    homes.push({ "houseName" : req.body.houseName});
+    
+    console.log(req.body.houseName);
     res.sendFile(path.join(rootDir  , "views" , "success.html"));
 });
 exports.hostRouter = hostRouter;
+exports.homes = homes;
