@@ -1,0 +1,13 @@
+const express = require("express");
+const path = require("path");
+const rootDir = require("../utils/pathUtil");
+const hostRouter = express.Router();
+hostRouter.get("/register" , (req , res , next)=>{
+    res.sendFile(path.join(rootDir , "views" , "registerHome.html"));
+    
+});
+hostRouter.post("/register" , (req , res , next)=>{
+    console.log(req.body);
+    res.sendFile(path.join(rootDir  , "views" , "success.html"));
+});
+exports.hostRouter = hostRouter;
